@@ -10,8 +10,8 @@ This Docker creates a simple SSH tunnel over a server. It is very useful when yo
 
 2. Inside `~/.ssh/config` put these lines:
 
-
-    Host mysql-tunnel # You can use any name
+```
+    Host mysql-tunnel # You can use any name
             HostName ssh-tunnel.corporate.tld # Tunnel 
             IdentityFile ~/.ssh/id_rsa # Private key location
             User cagatay.guertuerk # Username to connect to SSH service
@@ -20,14 +20,14 @@ This Docker creates a simple SSH tunnel over a server. It is very useful when yo
             ConnectTimeout 5
             ServerAliveCountMax 10
             ServerAliveInterval 15
-
+```
 
 3. Don't forget to put your private key (`id_rsa`) to `~/.ssh` folder.
 
 4. Now in `docker-compose.yml` you can define the tunnel as follows:
 
 ```
-    version: '2'
+    version: '2'
     services:
       mysql:
         build: tunnel
@@ -37,8 +37,8 @@ This Docker creates a simple SSH tunnel over a server. It is very useful when yo
           TUNNEL_HOST: mysql-tunnel
           REMOTE_HOST: tunneled-sql.corporate.internal.tld
           LOCAL_PORT: 3306
-          REMOTE_PORT: 3306
-
+          REMOTE_PORT: 3306
+```
 
 5. Run `docker-compose up -d`
 
