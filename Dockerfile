@@ -3,7 +3,8 @@ MAINTAINER Cagatay Gurturk <cguertuerk@ebay.de>
 
 RUN apk add --update openssh-client && rm -rf /var/cache/apk/*
 
-CMD ssh \
+CMD mkdir /root/.ssh && cp /root/ssh/* /root/.ssh/ && chmod 600 /root/.ssh/* && \
+ssh \
 -vv \
 -o StrictHostKeyChecking=no \
 -Nn $TUNNEL_HOST \
