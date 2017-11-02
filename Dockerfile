@@ -7,6 +7,7 @@ CMD rm -rf /root/.ssh && mkdir /root/.ssh && cp -R /root/ssh/* /root/.ssh/ && ch
 ssh \
 -vv \
 -o StrictHostKeyChecking=no \
--Nn $TUNNEL_HOST \
--L *:$LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT
+-N $TUNNEL_HOST \
+-L *:$LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT \
+while true; do sleep 30; done;
 EXPOSE 1-65535
