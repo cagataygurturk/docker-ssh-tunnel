@@ -34,6 +34,7 @@ This Docker creates a simple SSH tunnel over a server. It is very useful when yo
         volumes:
           - $HOME/.ssh:/root/ssh:ro
         environment:
+	  SSH_DEBUG: "-v"
           TUNNEL_HOST: mysql-tunnel
           REMOTE_HOST: tunneled-sql.corporate.internal.tld
           LOCAL_PORT: 3306
