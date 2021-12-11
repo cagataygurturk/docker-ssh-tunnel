@@ -3,8 +3,6 @@ name: 'build images'
 
 on:
   push:
-    branches:
-      - master
     tags:
       - "*"
 
