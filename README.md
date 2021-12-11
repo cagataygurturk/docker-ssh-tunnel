@@ -30,7 +30,7 @@ This Docker creates a simple SSH tunnel over a server. It is very useful when yo
     version: '2'
     services:
       mysql:
-        image: cagataygurturk/docker-ssh-tunnel:0.0.1
+        image: cagataygurturk/docker-ssh-tunnel
         volumes:
           - $HOME/.ssh:/root/ssh:ro
         environment:
